@@ -1,0 +1,146 @@
+{
+	
+"path" : "",
+"ambient": { "r":0.2, "g":0.2, "b":0.2, "a":1 },
+"background": { "r":1, "g":1, "b":1, "a":1 },
+
+"textures": {
+	
+	"floor": { 
+		"file": "floor.png"
+	},
+	
+	"mesh1": { 
+		"file": "mesh1.png"
+	},
+	
+	"mesh2": { 
+		"file": "mesh2.png"
+	},
+	
+	"mesh3": { 
+		"file": "mesh3.png"
+	}
+
+},
+	
+"materials": {
+	
+	"panel1mat": { 
+		"type": "Phong",
+		"color": { "r":0, "g":0, "b":0, "a":0 },
+		"specularIntensity": 0,
+                "shininess": 0,
+		"textureTile": [ 1,1 ],
+		"textureOffset": [ 0,0 ],
+		"colorTexture": "mesh1"
+	},
+	
+	"panel2mat": { 
+		"type": "Phong",
+		"color": { "r":0, "g":0, "b":0, "a":0 },
+		"specularIntensity": 0,
+                "shininess": 0,
+		"textureTile": [ 1,1 ],
+		"textureOffset": [ 0,0 ],
+		"colorTexture": "mesh2"
+	},
+	
+	"panel3mat": { 
+		"type": "Phong",
+		"color": { "r":0, "g":0, "b":0, "a":0 },
+		"specularIntensity": 0,
+                "shininess": 0,
+		"textureTile": [ 1,1 ],
+		"textureOffset": [ 0,0 ],
+		"colorTexture": "mesh3"
+	},
+	
+	"floormat": { 
+		"type": "Phong",
+		"color": { "r":0, "g":0, "b":0, "a":0 },
+		"specularIntensity": 0,
+                "shininess": 0,
+		"textureTile": [ 1,1 ],
+		"textureOffset": [ 0,0 ],
+		"colorTexture": "floor"
+	}
+
+},
+
+"lights": {
+},
+
+"cameras": {
+	
+	"main_camera": { 
+		"fov": 60,
+		"near": 0.3,
+		"far": 1000
+	}
+
+},
+
+"transforms": [
+	
+	{
+		"uid": 1,
+                "name": "main_camera",
+		"position": [ -0.000134458,121.0005,-643.0977 ],
+		"rotation": [ 0,3.141593,0 ],
+		"camera": "main_camera"
+	},
+	
+	{
+		"uid": 2,
+                "name": "powerplant",
+		"position": [ 0,0,0 ],
+		"rotation": [ 0,0,0 ]
+	},
+	
+	{
+		"uid": 3,
+                "name": "floor",
+		"parent": 2,
+		"position": [ 0,0,0 ],
+		"rotation": [ 0,0,0 ],
+		"renderer": "floormat",
+		"mesh": "floor"
+	},
+	
+	{
+		"uid": 4,
+                "name": "panel_1",
+		"parent": 2,
+		"position": [ 0,0,0 ],
+		"rotation": [ 0,0,0 ],
+		"renderer": "panel1mat",
+		"mesh": "panel_1"
+	},
+	
+	{
+		"uid": 5,
+                "name": "panel_2",
+		"parent": 2,
+		"position": [ 0,0,0 ],
+		"rotation": [ 0,0,0 ],
+		"renderer": "panel2mat",
+		"mesh": "panel_2"
+	},
+	
+	{
+		"uid": 6,
+                "name": "panel_3",
+		"parent": 2,
+		"position": [ 0,0,0 ],
+		"rotation": [ 0,0,0 ],
+		"renderer": "panel3mat",
+		"mesh": "panel_3"
+	}
+
+]
+}
+
+
+
+
