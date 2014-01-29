@@ -5,7 +5,7 @@
 <script type="text/javascript" src="https://rawgithub.com/drojdjou/J3D/master/build/j3d.js"></script>
 <script>
     var mx = 0, my = 0;
-    var root, cam;
+    var root;
 
     window.onload = function() {
         engine = new J3D.Engine();
@@ -13,15 +13,14 @@
         J3D.Loader.loadJSON("powerplant.json", function(jsmeshes) { 
             J3D.Loader.loadJSON("powerplantScene.json", function(jsscene) { 
                 J3D.Loader.parseJSONScene(jsscene, jsmeshes, engine);
-		root = engine.scene.find("root");
-                cam = engine.scene.find("root/main_camera");
+                root = engine.scene.find("root");
                 draw();
             })
         });
     }
 
     function draw() {
-        cam.rotation.y += 1;
+        root.rotation.y += 0.005;
         engine.render();
         requestAnimationFrame(draw);
     }

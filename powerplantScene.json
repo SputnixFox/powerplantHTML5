@@ -1,14 +1,10 @@
 {
 	
 "path" : "",
-"ambient": { "r":0.2, "g":0.2, "b":0.2, "a":1 },
-"background": { "r":1, "g":1, "b":1, "a":1 },
+"ambient": { "r":0.7089552, "g":0.7089552, "b":0.7089552, "a":1 },
+"background": { "r":0.1567164, "g":0.1567164, "b":0.1567164, "a":1 },
 
 "textures": {
-	
-	"floor": { 
-		"file": "floor.png"
-	},
 	
 	"mesh1": { 
 		"file": "mesh1.png"
@@ -28,7 +24,7 @@
 	
 	"panel1mat": { 
 		"type": "Phong",
-		"color": { "r":0, "g":0, "b":0, "a":0 },
+		"color": { "r":1, "g":1, "b":1, "a":1 },
 		"specularIntensity": 0,
                 "shininess": 0,
 		"textureTile": [ 1,1 ],
@@ -36,9 +32,18 @@
 		"colorTexture": "mesh1"
 	},
 	
+	"default_diffuse": { 
+		"type": "Phong",
+		"color": { "r":1, "g":1, "b":1, "a":0.5 },
+		"specularIntensity": 0,
+                "shininess": 0,
+		"textureTile": [  ],
+		"textureOffset": [  ]
+	},
+	
 	"panel2mat": { 
 		"type": "Phong",
-		"color": { "r":0, "g":0, "b":0, "a":0 },
+		"color": { "r":1, "g":1, "b":1, "a":1 },
 		"specularIntensity": 0,
                 "shininess": 0,
 		"textureTile": [ 1,1 ],
@@ -48,33 +53,30 @@
 	
 	"panel3mat": { 
 		"type": "Phong",
-		"color": { "r":0, "g":0, "b":0, "a":0 },
+		"color": { "r":1, "g":1, "b":1, "a":1 },
 		"specularIntensity": 0,
                 "shininess": 0,
 		"textureTile": [ 1,1 ],
 		"textureOffset": [ 0,0 ],
 		"colorTexture": "mesh3"
-	},
-	
-	"floormat": { 
-		"type": "Phong",
-		"color": { "r":0, "g":0, "b":0, "a":0 },
-		"specularIntensity": 0,
-                "shininess": 0,
-		"textureTile": [ 1,1 ],
-		"textureOffset": [ 0,0 ],
-		"colorTexture": "floor"
 	}
 
 },
 
 "lights": {
+	
+	"light": { 
+		"type": 1,
+		"color": { "r":1, "g":1, "b":1, "a":1 },
+		"direction": [ 0.254125,-0.6397581,-0.7253483 ]
+	}
+
 },
 
 "cameras": {
 	
-	"main_camera": { 
-		"fov": 60,
+	"camera": { 
+		"fov": 50,
 		"near": 0.3,
 		"far": 1000
 	}
@@ -85,33 +87,25 @@
 	
 	{
 		"uid": 1,
-                "name": "main_camera",
-		"position": [ -0.000134458,121.0005,-643.0977 ],
-		"rotation": [ 0,3.141593,0 ],
-		"camera": "main_camera"
+                "name": "root",
+		"position": [ 0,0,0 ],
+		"rotation": [ 0,3.141593,0 ]
 	},
 	
 	{
 		"uid": 2,
-                "name": "powerplant",
-		"position": [ 0,0,0 ],
-		"rotation": [ 0,0,0 ]
-	},
-	
-	{
-		"uid": 3,
                 "name": "floor",
-		"parent": 2,
+		"parent": 1,
 		"position": [ 0,0,0 ],
 		"rotation": [ 0,0,0 ],
-		"renderer": "floormat",
+		"renderer": "default_diffuse",
 		"mesh": "floor"
 	},
 	
 	{
-		"uid": 4,
-                "name": "panel_1",
-		"parent": 2,
+		"uid": 3,
+                "name": "panel1",
+		"parent": 1,
 		"position": [ 0,0,0 ],
 		"rotation": [ 0,0,0 ],
 		"renderer": "panel1mat",
@@ -119,9 +113,9 @@
 	},
 	
 	{
-		"uid": 5,
-                "name": "panel_2",
-		"parent": 2,
+		"uid": 4,
+                "name": "panel2",
+		"parent": 1,
 		"position": [ 0,0,0 ],
 		"rotation": [ 0,0,0 ],
 		"renderer": "panel2mat",
@@ -129,13 +123,29 @@
 	},
 	
 	{
-		"uid": 6,
-                "name": "panel_3",
-		"parent": 2,
+		"uid": 5,
+                "name": "panel3",
+		"parent": 1,
 		"position": [ 0,0,0 ],
 		"rotation": [ 0,0,0 ],
 		"renderer": "panel3mat",
 		"mesh": "panel_3"
+	},
+	
+	{
+		"uid": 6,
+                "name": "light",
+		"position": [ -0.5425003,0.9019744,1.322142 ],
+		"rotation": [ -0.7227816,-0.2569429,0.0000000298 ],
+		"light": "light"
+	},
+	
+	{
+		"uid": 7,
+                "name": "camera",
+		"position": [ 0,2.124964,7.916361 ],
+		"rotation": [ -0.01366777,0,0 ],
+		"camera": "camera"
 	}
 
 ]
