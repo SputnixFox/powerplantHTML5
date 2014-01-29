@@ -2,10 +2,10 @@
 
 <head> 
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"> 
-<script type="text/javascript" src="https://rawgithub.com/drojdjou/J3D/master/build/j3d.js"></script>
+<script type="text/javascript" src="https://raw.github.com/drojdjou/J3D/master/build/j3d.js"></script>
 <script>
     var mx = 0, my = 0;
-    var cam;
+    var root, cam;
 
     window.onload = function() {
         engine = new J3D.Engine();
@@ -13,7 +13,8 @@
         J3D.Loader.loadJSON("powerplant.json", function(jsmeshes) { 
             J3D.Loader.loadJSON("powerplantScene.json", function(jsscene) { 
                 J3D.Loader.parseJSONScene(jsscene, jsmeshes, engine);
-                cam = engine.scene.find("main_camera");
+		root = engine.scene.find("root");
+                cam = engine.scene.find("root/main_camera");
                 draw();
             })
         });
